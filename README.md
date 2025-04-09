@@ -42,7 +42,7 @@ Poprawność wykonania algorytmu jest sygnalizowana przez zmienną `st` (status)
 | 0            | w przeciwnym przypadku                                                  |
 
 **Uwaga:** Jeśli $\texttt{st} = 1, 2 \text{ lub } 4$, wartość funkcji nie jest obliczana, a w przypadku $\texttt{st} = 3$ ostatnie przybliżenie pierwiastka jest zwracane.
->>>>>>> f28a033e7534338577528b2e12e6cb39c6745e8b
+
 
 ## Kluczowe Funkcjonalności
 - **Metoda Newtona-Raphsona drugiego rzędu**  
