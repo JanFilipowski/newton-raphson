@@ -22,11 +22,11 @@ Poprawność wykonania algorytmu jest sygnalizowana przez zmienną `st` (status)
 
 | Wartość `st` | Warunek                                                                 |
 |--------------|-------------------------------------------------------------------------|
-| 1            | jeżeli `i = 1`                                                          |
+| 1            | jeżeli `miti = 1`                                                       |
 | 2            | gdy podczas obliczeń `f'(x) = 0` dla pewnej wartości `x`               |
 | 3            | jeżeli w `n_I` krokach iteracyjnych nie osiągnięto podanej dokładności |
 | 4            | gdy `f''(x) - 2 f'(x) f''(x) < 0` dla pewnej wartości `x`              |
-| 5            | w przeciwnym przypadku                                                  |
+| 0            | w przeciwnym przypadku                                                  |
 
 **Uwaga:** Jeśli $\texttt{st} = 1, 2 \text{ lub } 4$, wartość funkcji nie jest obliczana, a w przypadku $\texttt{st} = 3$ ostatnie przybliżenie pierwiastka jest zwracane.
 
