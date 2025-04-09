@@ -6,27 +6,21 @@ Algorytm realizuje iteracyjną metodę Newtona-Raphsona drugiego rzędu, który 
 
 ## Algorytm
 Pierwiastek równania wyznacza się przy pomocy następującej iteracji:
-$
-x_{i+1} = x_i - \frac{f'(x_i) \pm \sqrt{[f''(x_i)]^2 - 2\,f'(x_i)\,f''(x_i)}}{f''(x_i)}, \quad i = 0,1,\ldots
-$
+$x_{i+1} = x_i - \frac{f'(x_i) \pm \sqrt{[f''(x_i)]^2 - 2\,f'(x_i)\,f''(x_i)}}{f''(x_i)}, \quad i = 0,1,\ldots$
 gdzie $x_0$ jest wartością początkową podaną przez użytkownika. Proces iteracyjny zatrzymuje się, gdy:
-$
-\frac{\lvert x_{i+1} - x_i\rvert}{\max(\lvert x_{i+1}\rvert, \lvert x_{i}\rvert)} < \varepsilon, \quad (x_{i+1} \neq 0 \text{ lub } x_i \neq 0)
-$
+$\frac{\lvert x_{i+1} - x_i\rvert}{\max(\lvert x_{i+1}\rvert, \lvert x_{i}\rvert)} < \varepsilon, \quad (x_{i+1} \neq 0 \text{ lub } x_i \neq 0)$
 lub gdy przy kolejnych iteracjach nie zmienia się już wartość $x$.
 
 ## Status Algorytmu
 Poprawność wykonania algorytmu jest sygnalizowana przez zmienną `st` (status), która przyjmuje jedną z następujących wartości:
-$
-\texttt{st} = 
+$\texttt{st} = 
 \begin{cases}
 1, & \text{jeżeli } i = 1,\\[1mm]
 2, & \text{gdy podczas obliczeń } f'(x) = 0 \text{ dla pewnej wartości } x,\\[1mm]
 3, & \text{jeżeli w } n_I \text{ krokach iteracyjnych nie osiągnięto podanej dokładności},\\[1mm]
 4, & \text{gdy } f''(x) - 2\,f'(x)\,f''(x) < 0 \text{ dla pewnej wartości } x,\\[1mm]
 5, & \text{w przeciwnym przypadku}.
-\end{cases}
-$
+\end{cases}$
 **Uwaga:** Jeśli $\texttt{st} = 1, 2 \text{ lub } 4$, wartość funkcji nie jest obliczana, a w przypadku $\texttt{st} = 3$ ostatnie przybliżenie pierwiastka jest zwracane.
 
 ## Kluczowe Funkcjonalności
