@@ -1,6 +1,7 @@
 # Program do znajdowania rozwiązania równania nieliniowego metodą Newtona-Raphsona
 
 ## Opis
+<<<<<<< HEAD
 Ten projekt jest dedykowany do znajdowania przybliżonego pierwiastka równania nieliniowego $f(x) = 0$. Algorytm realizuje iteracyjną metodę Newtona-Raphsona drugiego rzędu, który wykorzystuje zarówno pierwszą, jak i drugą pochodną funkcji do wyznaczenia kolejnych przybliżeń pierwiastka.
 
 ## Algorytm
@@ -13,6 +14,36 @@ Gdzie $x_0$ jest wartością początkową podaną przez użytkownika. Proces ite
 $$\frac{\lvert x_{i+1} - x_i\rvert}{\max(\lvert x_{i+1}\rvert, \lvert x_{i}\rvert)} < \varepsilon, \quad (x_{i+1} \neq 0 \text{ lub } x_i \neq 0)$$
 
 lub gdy przy kolejnych iteracjach nie zmienia się już wartość $x$.
+=======
+Ten projekt jest dedykowany do znajdowania przybliżonego pierwiastka równania nieliniowego $f(x) = 0$,
+Algorytm realizuje iteracyjną metodę Newtona-Raphsona drugiego rzędu, który wykorzystuje zarówno pierwszą, jak i drugą pochodną funkcji do wyznaczenia kolejnych przybliżeń pierwiastka.
+
+## Algorytm
+Pierwiastek równania wyznacza się przy pomocy następującej iteracji:
+
+$x_{i+1} = x_i - \frac{f'(x_i) \pm \sqrt{[f''(x_i)]^2 - 2\,f'(x_i)\,f''(x_i)}}{f''(x_i)}, \quad i = 0,1,\ldots$
+
+
+gdzie $x_0$ jest wartością początkową podaną przez użytkownika. Proces iteracyjny zatrzymuje się, gdy:
+
+$\frac{\lvert x_{i+1} - x_i\rvert}{\max(\lvert x_{i+1}\rvert, \lvert x_{i}\rvert)} < \varepsilon, \quad (x_{i+1} \neq 0 \text{ lub } x_i \neq 0)$
+
+
+lub gdy przy kolejnych iteracjach nie zmienia się już wartość $x$.
+
+## Status Algorytmu
+Poprawność wykonania algorytmu jest sygnalizowana przez zmienną `st` (status), która przyjmuje jedną z następujących wartości:
+
+| Wartość `st` | Warunek                                                                 |
+|--------------|-------------------------------------------------------------------------|
+| 1            | jeżeli `miti = 1`                                                       |
+| 2            | gdy podczas obliczeń `f'(x) = 0` dla pewnej wartości `x`               |
+| 3            | jeżeli w `n_I` krokach iteracyjnych nie osiągnięto podanej dokładności |
+| 4            | gdy `f''(x) - 2 f'(x) f''(x) < 0` dla pewnej wartości `x`              |
+| 0            | w przeciwnym przypadku                                                  |
+
+**Uwaga:** Jeśli $\texttt{st} = 1, 2 \text{ lub } 4$, wartość funkcji nie jest obliczana, a w przypadku $\texttt{st} = 3$ ostatnie przybliżenie pierwiastka jest zwracane.
+>>>>>>> f28a033e7534338577528b2e12e6cb39c6745e8b
 
 ## Kluczowe Funkcjonalności
 - **Metoda Newtona-Raphsona drugiego rzędu**  
