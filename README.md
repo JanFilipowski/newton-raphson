@@ -6,9 +6,15 @@ Algorytm realizuje iteracyjną metodę Newtona-Raphsona drugiego rzędu, który 
 
 ## Algorytm
 Pierwiastek równania wyznacza się przy pomocy następującej iteracji:
+
 $x_{i+1} = x_i - \frac{f'(x_i) \pm \sqrt{[f''(x_i)]^2 - 2\,f'(x_i)\,f''(x_i)}}{f''(x_i)}, \quad i = 0,1,\ldots$
+
+
 gdzie $x_0$ jest wartością początkową podaną przez użytkownika. Proces iteracyjny zatrzymuje się, gdy:
+
 $\frac{\lvert x_{i+1} - x_i\rvert}{\max(\lvert x_{i+1}\rvert, \lvert x_{i}\rvert)} < \varepsilon, \quad (x_{i+1} \neq 0 \text{ lub } x_i \neq 0)$
+
+
 lub gdy przy kolejnych iteracjach nie zmienia się już wartość $x$.
 
 ## Status Algorytmu
