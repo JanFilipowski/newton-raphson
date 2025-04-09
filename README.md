@@ -19,7 +19,15 @@ lub gdy przy kolejnych iteracjach nie zmienia się już wartość $x$.
 
 ## Status Algorytmu
 Poprawność wykonania algorytmu jest sygnalizowana przez zmienną `st` (status), która przyjmuje jedną z następujących wartości:
-$\texttt{st} = \begin{cases} 1, & \text{jeżeli } i = 1,\\[1mm] 2, & \text{gdy podczas obliczeń } f'(x) = 0 \text{ dla pewnej wartości } x,\\[1mm] 3, & \text{jeżeli w } n_I \text{ krokach iteracyjnych nie osiągnięto podanej dokładności},\\[1mm] 4, & \text{gdy } f''(x) - 2\,f'(x)\,f''(x) < 0 \text{ dla pewnej wartości } x,\\[1mm] 5, & \text{w przeciwnym przypadku}.\end{cases}$
+
+| Wartość `st` | Warunek                                                                 |
+|--------------|-------------------------------------------------------------------------|
+| 1            | jeżeli `i = 1`                                                          |
+| 2            | gdy podczas obliczeń `f'(x) = 0` dla pewnej wartości `x`               |
+| 3            | jeżeli w `n_I` krokach iteracyjnych nie osiągnięto podanej dokładności |
+| 4            | gdy `f''(x) - 2 f'(x) f''(x) < 0` dla pewnej wartości `x`              |
+| 5            | w przeciwnym przypadku                                                  |
+
 **Uwaga:** Jeśli $\texttt{st} = 1, 2 \text{ lub } 4$, wartość funkcji nie jest obliczana, a w przypadku $\texttt{st} = 3$ ostatnie przybliżenie pierwiastka jest zwracane.
 
 ## Kluczowe Funkcjonalności
