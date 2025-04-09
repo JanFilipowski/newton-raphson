@@ -1,10 +1,7 @@
 # Program do znajdowania rozwiązania równania nieliniowego metodą Newtona-Raphsona
 
 ## Opis
-Ten projekt jest dedykowany do znajdowania przybliżonego pierwiastka równania nieliniowego 
-$
-f(x) = 0.
-$
+Ten projekt jest dedykowany do znajdowania przybliżonego pierwiastka równania nieliniowego $f(x) = 0$,
 Algorytm realizuje iteracyjną metodę Newtona-Raphsona drugiego rzędu, który wykorzystuje zarówno pierwszą, jak i drugą pochodną funkcji do wyznaczenia kolejnych przybliżeń pierwiastka.
 
 ## Algorytm
