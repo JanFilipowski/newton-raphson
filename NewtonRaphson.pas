@@ -25,7 +25,7 @@ function tiNewtonRaphson(var x: interval;
 
 implementation
 
-// Funkcja pomocnicza do obliczania wartoœci bezwzglêdnej przedzia³u
+// Funkcja pomocnicza do obliczania wartoÅ›ci bezwzglÄ™dnej przedziaÅ‚u
 function fabs(const x: interval): interval;
 begin
   if x.a >= 0 then begin
@@ -44,7 +44,7 @@ begin
 end;
 
 // =====================================================
-// Funkcja tNewtonRaphson – wersja zmiennoprzecinkowa z debugowaniem
+// Funkcja tNewtonRaphson â€“ wersja zmiennoprzecinkowa z debugowaniem
 // =====================================================
 function tNewtonRaphson(var x: Extended;
                         f, df, d2f: fx;
@@ -86,8 +86,8 @@ begin
         x1 := x - (dfatx - p) / d2fatx;
         x2 := x - (dfatx + p) / d2fatx;
         Writeln(' Obliczone p      = ', p:0:16);
-        Writeln(' Mo¿liwe x1      = ', x1:0:16);
-        Writeln(' Mo¿liwe x2      = ', x2:0:16);
+        Writeln(' MoÅ¼liwe x1      = ', x1:0:16);
+        Writeln(' MoÅ¼liwe x2      = ', x2:0:16);
 
         if abs(x2 - xh) > abs(x1 - xh) then
           x := x1
@@ -105,7 +105,7 @@ begin
         else if abs(x - xh) / v <= eps then
           st := 0;
 
-        Writeln(' Warunek zbie¿noœci: abs(x - xh)/v = ', abs(x - xh)/v:0:16, ' (eps = ', eps:0:16, ')');
+        Writeln(' Warunek zbieÅ¼noÅ›ci: abs(x - xh)/v = ', abs(x - xh)/v:0:16, ' (eps = ', eps:0:16, ')');
       end;
     until (it = mit) or (st <> 3);
   end;
@@ -117,7 +117,7 @@ begin
 end;
 
 // =====================================================
-// Funkcja tiNewtonRaphson – wersja przedzia³owa z debugowaniem
+// Funkcja tiNewtonRaphson â€“ wersja przedziaÅ‚owa z debugowaniem
 // =====================================================
 function tiNewtonRaphson(var x: interval;
                          f, df, d2f: ifx;
@@ -129,8 +129,8 @@ var
   dfatx, d2fatx, p, v, w, xh, x1, x2: interval;
   st_sqrt: Integer;
   leftStr, rightStr: string;
-  prev_error, curr_error: Extended;  // przechowujemy b³¹d z poprzedniej iteracji
-  last_x: interval;                  // wartoœæ x z poprzedniej iteracji
+  prev_error, curr_error: Extended;  // przechowujemy bÅ‚Ä…d z poprzedniej iteracji
+  last_x: interval;                  // wartoÅ›Ä‡ x z poprzedniej iteracji
   firstIter: Boolean;
 begin
   if mit < 1 then
@@ -148,7 +148,7 @@ begin
 
       iends_to_strings(x, leftStr, rightStr);
       Writeln('------------------------------');
-      Writeln('ITERACJA ', it, ' (PRZEDZIA£OWA)');
+      Writeln('ITERACJA ', it, ' (PRZEDZIAÅOWA)');
       Writeln(' Aktualne x       = [', leftStr, ', ', rightStr, ']');
 
       iends_to_strings(fatx, leftStr, rightStr);
@@ -175,9 +175,9 @@ begin
           iends_to_strings(p, leftStr, rightStr);
           Writeln(' Obliczone p      = [', leftStr, ', ', rightStr, ']');
           iends_to_strings(x1, leftStr, rightStr);
-          Writeln(' Mo¿liwe x1      = [', leftStr, ', ', rightStr, ']');
+          Writeln(' MoÅ¼liwe x1      = [', leftStr, ', ', rightStr, ']');
           iends_to_strings(x2, leftStr, rightStr);
-          Writeln(' Mo¿liwe x2      = [', leftStr, ', ', rightStr, ']');
+          Writeln(' MoÅ¼liwe x2      = [', leftStr, ', ', rightStr, ']');
 
           if fabs(x2 - xh).b > fabs(x1 - xh).b then
             x := x1
@@ -190,33 +190,33 @@ begin
           iends_to_strings(x, leftStr, rightStr);
           Writeln(' Zaktualizowane x = [', leftStr, ', ', rightStr, ']');
 
-          // Obliczenie aktualnego b³êdu zbie¿noœci
+          // Obliczenie aktualnego bÅ‚Ä™du zbieÅ¼noÅ›ci
           curr_error := ((fabs(x - xh)) / v).b;
           if not firstIter then
           begin
             if curr_error > prev_error then
             begin
               st := 0;
-              x := last_x; // przywracamy poprzedni¹ wartoœæ
-              Writeln('B³¹d zbie¿noœci wzrós³ z ', prev_error:0:16, ' do ', curr_error:0:16,
-                      '. Zatrzymanie iteracji i przywrócenie poprzedniej wartoœci.');
-              Break;  // przerywamy pêtlê
+              x := last_x; // przywracamy poprzedniÄ… wartoÅ›Ä‡
+              Writeln('BÅ‚Ä…d zbieÅ¼noÅ›ci wzrÃ³sÅ‚ z ', prev_error:0:16, ' do ', curr_error:0:16,
+                      '. Zatrzymanie iteracji i przywrÃ³cenie poprzedniej wartoÅ›ci.');
+              Break;  // przerywamy pÄ™tlÄ™
             end;
           end
           else
             firstIter := False;
 
-          // Zapisujemy bie¿¹cy stan jako ostatnio zaakceptowany
+          // Zapisujemy bieÅ¼Ä…cy stan jako ostatnio zaakceptowany
           prev_error := curr_error;
           last_x := x;
 
           if curr_error <= eps then
           begin
             st := 0;
-            Writeln('Zbie¿noœæ osi¹gniêta: ((fabs(x - xh))/v).b = ', curr_error:0:16, ' <= ', eps:0:16);
+            Writeln('ZbieÅ¼noÅ›Ä‡ osiÄ…gniÄ™ta: ((fabs(x - xh))/v).b = ', curr_error:0:16, ' <= ', eps:0:16);
           end
           else
-            Writeln('Warunek zbie¿noœci: ((fabs(x - xh))/v).b = ', curr_error:0:16, ' (eps = ', eps:0:16, ')');
+            Writeln('Warunek zbieÅ¼noÅ›ci: ((fabs(x - xh))/v).b = ', curr_error:0:16, ' (eps = ', eps:0:16, ')');
         end
         else
           st := 4;
@@ -232,4 +232,3 @@ end;
 
 
 end.
-
